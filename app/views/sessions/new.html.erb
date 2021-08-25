@@ -1,0 +1,19 @@
+<div class="form-container">
+  <h2>Sign In</h2>
+  <%= form_with scope: :user, url: sign_in_path, class: "d-flex flex-column" do |form| %>
+    <div class="mb-3">
+      <%= form.label :email %>
+      <%= form.email_field :email, class: "form-control",
+        placeholder: "e.g joseph_bezerra@outlook.com" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password %>
+      <%= form.password_field :password, class:"form-control",
+        placeholder: "Password" %>
+      <%= link_to "I forgot my password", password_resets_path %>
+    </div>
+    <div class="mb-3 d-flex flex-column">
+      <%= form.submit "Sign In", class: "btn btn-primary align-self-center" %>
+    </div>
+  <% end %>
+</div>

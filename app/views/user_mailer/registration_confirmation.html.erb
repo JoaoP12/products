@@ -1,0 +1,5 @@
+<p>To finish setting up your account, please confirm your account clicking in the button below:</p>
+
+<%= button_to "Confirm your account", registration_confirmation_url(@user.confirm_token), class:"btn btn-primary" %>
+<p>If the button is not working, please copy and paste the link below in your browser:</p>
+<%= registration_confirmation_url(@user.confirm_token) %>

@@ -1,0 +1,16 @@
+<div class="form-container">
+  <h2>Reset your password</h2>
+  <%= form_with url: password_reset_path(params[:id]), method: :patch, class: "d-flex flex-column" do |form| %>
+    <div class="mb-3">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    <div class="mb-3 d-flex flex-column">
+      <%= form.submit "Update password", class: "btn btn-primary align-self-center" %>
+    </div>
+  <% end %>
+</div>

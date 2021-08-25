@@ -1,0 +1,36 @@
+<div class="modal fade" tabindex="-1" id="createProduct"
+  aria-labelledby="createModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Create new product
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= form_with model: @product, url: create_product_path do |form| %>
+            <div class="mb-3">
+              <%= form.label :title %>
+              <%= form.text_field :title, class: "form-control", placeholder: "e.g Cellphone case" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :price %>
+              <%= form.text_field :price, class: "form-control", placeholder: "e.g 10.84" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :img_link %>
+              <%= form.url_field :img_link, class: "form-control"%>
+            </div>
+            <div class="mb-3">
+              <%= form.label :description %>
+              <%= form.text_area :description, class: "form-control", size: "50x10" %>
+            </div>
+            <div class="mb-3">
+              <%= form.submit "Create", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

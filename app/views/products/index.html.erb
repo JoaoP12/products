@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Products</h1>
+  <button type="button" class="mb-3 btn btn-success" data-bs-toggle="modal" data-bs-target="#createProduct">
+    Create Product
+  </button>
+  <%= render partial: "products/modals/create_modal" %>
+  <div class="row">
+    <%= render partial: "products/card" %>
+  </div>
+</div>

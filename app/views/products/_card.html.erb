@@ -1,0 +1,30 @@
+<% @products.each_with_index do |product| %>
+  <div class="col-3">
+    <div class="card mb-3 h-100">
+      <div class="card-body">
+        <div class="clickable" type="button" data-bs-toggle="modal"
+          data-bs-target="#view-product-<%= product.id%>"> 
+          <img src="<%= product.img_link%>"
+            alt="Product image" class="card-img-top mb-3">
+          <h5 class="card-title"><%= product.title %></h5>
+          <p class="card-text"><%= product.price_formatted %></p>
+        </div>
+        <div class="product--buttons mt-3">
+          <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+            data-bs-placement="top" title="Delete" data-bs-target="#delete-product-<%= product.id %>">
+            <i class="fas fa-minus-circle fa-lg"></i>
+          </button>
+          
+          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+            data-bs-target="#edit-product-<%= product.id %>" data-bs-placement="top" title="Edit">
+              <i class="fas fa-edit fa-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render partial: "products/modals/edit_modal", locals: { product: product } %>
+  <%= render partial: "products/modals/view_modal", locals: { product: product } %>
+  <%= render partial: "products/modals/delete_modal", locals: { product: product } %>
+<% end %>

@@ -1,0 +1,41 @@
+.card {
+  transition: all .6s;
+  &:hover {
+    color: white;
+    background-color: rgb(68, 66, 66);
+
+    transform: translateY(-12px);
+    .card-body a {
+      color: white !important;
+    }
+  }
+  .card-body {
+    padding: 2rem 1rem 0.4rem 1rem;
+    a {
+      text-decoration: none;
+    }
+    a:visited {
+      color: black;
+    }
+  }
+
+  img {
+    max-height: 200px;
+    object-fit: contain;
+  }
+}
+
+.product--buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin: 0 auto;
+  button {
+    margin: auto;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

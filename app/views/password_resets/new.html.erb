@@ -1,0 +1,12 @@
+<div class="form-container">
+  <h2>Reset your password</h2>
+  <%= form_with url: password_resets_path, class: "d-flex flex-column" do |form| %>
+    <div class="mb-3">
+      <%= form.label :email %>
+      <%= form.email_field :email, class: "form-control" %>
+    </div>
+    <div class="mb-3 d-flex flex-column">
+      <%= form.submit "Send", class: "btn btn-primary align-self-center" %>
+    </div>
+  <% end %>
+</div>
