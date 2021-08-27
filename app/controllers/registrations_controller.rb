@@ -24,6 +24,7 @@ class RegistrationsController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
+      ShoppingCart.create(user)
     else
       redirect_to root_path, alert: "User not found"
     end
