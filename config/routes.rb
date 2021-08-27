@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   resources :password_resets
 
+  get "shopping-cart", to: "shopping_cart#show"
+
 end
