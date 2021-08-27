@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_134324) do
+ActiveRecord::Schema.define(version: 2021_08_26_150112) do
 
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.decimal "price"
     t.string "img_link", default: "http://bandeiraimoveis-ba.com.br/application/modules/themes/views/default/assets/images/image-placeholder.png"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shopping_cart_products", force: :cascade do |t|
+    t.integer "shopping_cart_id"
+    t.integer "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity"
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
