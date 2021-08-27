@@ -7,3 +7,12 @@
     background-color: rgb(68, 66, 66);
   }
 }
+
+.nav-item {
+  .cart-link {
+    &:hover {
+      background-color: inherit !important;
+      color: rgb(44, 41, 41) !important;
+    }
+  }
+}
