@@ -41,3 +41,5 @@ yarn-debug.log*
 github_token
 /config/application.yml
 /config/environments
+# Ignore application configuration
+/config/application.yml
