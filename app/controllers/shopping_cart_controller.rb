@@ -1,8 +1,11 @@
 class ShoppingCartController < ApplicationController
-  before_action :require_user_logged_in
-
+  
   def show
-    cart = ShoppingCart.find_by_user_id(Current.user.id)
+    cart = ShoppingCart.find_by_user_id(current_user.id)
+    if !cart.present?
+      cart = create(current_user)
+      cart.save
+    end
     cart_records = ShoppingCartProduct.where(shopping_cart_id: cart.id)
     @cart_products = []
 
@@ -12,6 +15,6 @@ class ShoppingCartController < ApplicationController
   end
 
   def create(user)
-    @cart = ShoppingCart.new({ user_id: user.id })
+    ShoppingCart.new({ user_id: user.id })
   end
 end
