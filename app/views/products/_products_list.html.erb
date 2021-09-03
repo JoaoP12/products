@@ -1,0 +1,16 @@
+<% @products.each_with_index do |product| %>
+  <div class="col-3 mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="clickable" type="button" data-bs-toggle="modal"
+          data-bs-target="#view-product-<%= product.id%>"> 
+          <img src="<%= product.img_link%>"
+            alt="Product image" class="card-img-top mb-3">
+          <h5 class="card-title"><%= product.title %></h5>
+          <p class="card-text"><%= product.price_formatted %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render partial: "products/view_modal", locals: { product: product } %>
+<% end %>
