@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'cancancan'
 gem 'rails_admin', '~> 2.0'
+gem 'searchkick'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
