@@ -10,8 +10,9 @@
             <h6 class="card-subtitle"><%= product.price_formatted %></h6>
           </div>
           <div class="card-container">
-            <button class="btn btn-primary">Checkout</button>  
-            <button class="btn btn-danger">Remove</button>
+            <button class="btn btn-primary">Checkout</button>
+            <%= link_to "Remove", delete_from_shopping_cart_path(product.id), method: :delete,
+              type: "button", class: "btn btn-danger" %>
           </div>
         </div>
       </div>
