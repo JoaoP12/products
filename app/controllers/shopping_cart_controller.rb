@@ -1,7 +1,7 @@
 class ShoppingCartController < ApplicationController
   
   def show
-    cart = create(current_user)
+    cart = user_cart(current_user)
     cart_records = ShoppingCartProduct.where(shopping_cart_id: cart.id)
     @cart_products = []
     cart_records.each do |cart_record|
@@ -13,7 +13,7 @@ class ShoppingCartController < ApplicationController
     product = ShoppingCartProduct.new({
       product_id: params[:product_id],
       quantity: params[:quantity],
-      shopping_cart_id: create(current_user).id
+      shopping_cart_id: user_cart(current_user).id
     })
     if product
       product.save
@@ -23,7 +23,16 @@ class ShoppingCartController < ApplicationController
     end
   end
 
-  def create(user)
+  def delete_product
+    cart = user_cart(current_user)
+    product = ShoppingCartProduct.find_by(product_id: params[:product_id],
+      shopping_cart_id: cart.id)
+
+    product.destroy
+    redirect_to shopping_cart_path, notice: "Product removed successfully"
+  end
+
+  def user_cart(user)
     cart = ShoppingCart.find_by_user_id(user.id)
     if cart.present?
       ShoppingCart.find_by_user_id(user.id)
