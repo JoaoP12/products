@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @products = Product.all
+    query = params[:query].present? ? params[:query] : nil
+    @products = if query
+      Product.search(query)
+    else
+      Product.all
+    end
     @product = Product.new
   end
 
