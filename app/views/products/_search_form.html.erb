@@ -1,0 +1,8 @@
+<div class="search-bar mb-3">
+  <%= form_with url: products_path, method: :get do |f| %>
+    <div class="w-75">
+      <%= f.text_field :query, name:"query", placeholder: "Search something here", class: "form-control" %>
+    </div>
+    <button class="btn btn-primary">Search</button>
+  <% end %>
+</div>
