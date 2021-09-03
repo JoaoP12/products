@@ -44,3 +44,11 @@
   max-width: 90%;
   height: auto;
 }
+
+.search-bar {
+  form{
+    display: flex;
+    max-width: 450px;
+    justify-content: space-between;
+  }
+}
