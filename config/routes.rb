@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   delete "products/:id", to: "products#delete", as: :delete_product
 
   get "shopping-cart", to: "shopping_cart#show"
+  post "shopping-cart/:product_id", to: "shopping_cart#add_product", as: :add_to_shopping_cart
 end

@@ -27,6 +27,15 @@
               <%= product.description %>
             </p>
           </div>
+          <%= form_with url: add_to_shopping_cart_path(product.id), method: :post do |f| %>
+            <div class="mb-3">
+              <%= f.label :quantity %>
+              <%= f.number_field :quantity, in: 1..10, step: 1, value: 1, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+              <%= f.submit 'Add to cart', class: "btn btn-primary" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
