@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   include ActiveSupport::NumberHelper
   validates :description, :price, :title, :presence => true
 
-  searchkick word_middle: [:title, :description]
+  searchkick word_start: [:title, :description]
 
   def price_formatted
     number_to_currency(self.price, precision: 2, unit: 'R$ ')
