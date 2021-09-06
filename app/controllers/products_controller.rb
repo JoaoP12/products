@@ -37,6 +37,16 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def autocomplete
+    render json: Product.search(params[:query], {
+      fields: ['title^5', "description"],
+      match: :word_start,
+      limit: 10,
+      load: false,
+      misspellings: {below: 5},
+    }).map(&:title)
+  end
+
   private
   def product_params
     params.require(:product).permit(:id, :title, :description, :price, :img_link)
